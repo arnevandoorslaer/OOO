@@ -9,4 +9,9 @@ public class Movie extends Product{
     public double getPrice(int days){
         return days <= 3 ? 5 : 5+(days-3)*2;
     }
+
+    @Override
+    public String toString() {
+        return "The movie " + super.toString();
+    }
 }

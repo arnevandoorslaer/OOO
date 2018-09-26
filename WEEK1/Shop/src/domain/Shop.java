@@ -27,7 +27,7 @@ public class Shop {
         Iterator it = producten.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
-            res += pair.getKey() + " - " + pair.getValue() + "\n";
+            res += pair.getKey() + " - " + pair.getValue().toString() + "\n";
             it.remove(); // avoids a ConcurrentModificationException
         }
         return res;
@@ -35,9 +35,9 @@ public class Shop {
 
      public int getHighestKey(){
          if(producten.isEmpty()){
-             return -1;
+             return 0;
          }
-         return Collections.max(producten.keySet());
+         return Collections.max(producten.keySet())+1;
      }
 
 

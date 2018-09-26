@@ -9,4 +9,9 @@ public class CD extends Product {
     public double getPrice(int days){
         return days*1.5;
     }
+
+    @Override
+    public String toString() {
+        return "The CD " + super.toString();
+    }
 }

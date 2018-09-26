@@ -9,4 +9,9 @@ public class Game extends Product {
     public double getPrice(int days) {
         return days * 3;
     }
+
+    @Override
+    public String toString() {
+        return "The game " + super.toString();
+    }
 }

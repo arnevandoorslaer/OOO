@@ -43,4 +43,9 @@ public abstract class Product {
     public void setUitgeleend(boolean uitgeleend) {
         this.uitgeleend = uitgeleend;
     }
+
+    @Override
+    public String toString() {
+        return  title + " is " + (uitgeleend?"lent":"available");
+    }
 }
