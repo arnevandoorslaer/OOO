@@ -22,5 +22,23 @@ public class Shop {
          return producten.get(id);
      }
 
+    public String toString() {
+         String res = "";
+        Iterator it = producten.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            res += pair.getKey() + " - " + pair.getValue() + "\n";
+            it.remove(); // avoids a ConcurrentModificationException
+        }
+        return res;
+    }
+
+     public int getHighestKey(){
+         if(producten.isEmpty()){
+             return -1;
+         }
+         return Collections.max(producten.keySet());
+     }
+
 
 }
