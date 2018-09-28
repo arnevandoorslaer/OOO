@@ -6,6 +6,23 @@ public class ShopUI {
     private Shop PrrPrr;
     public ShopUI(){
         PrrPrr = new Shop();
+
+        addProduct("G","Call of Duty - Black Ops");
+        addProduct("M","Die Hard");
+        addProduct("G","Minecraft");
+        addProduct("CD","Thriller");
+        addProduct("CD","Plop - 3");
+        addProduct("G","Fortnite");
+        addProduct("M","The Shining");
+        addProduct("G","Call of Duty - Black Ops II");
+        addProduct("G","Minecraft II");
+        addProduct("M","Die Hard II");
+        addProduct("M","Die Hard III");
+        addProduct("CD","Thriller II");
+        addProduct("CD","Plop - 4");
+        addProduct("G","Fortnite II");
+        addProduct("M","The Shining II");
+
         start();
     }
 
@@ -29,6 +46,7 @@ public class ShopUI {
     }
     private void showListOfProducts(){
         JOptionPane.showMessageDialog(null, PrrPrr.toString());
+
     }
     private void showStatus(){
         String idStr = JOptionPane.showInputDialog("Which product do you want to see?");
@@ -51,6 +69,24 @@ public class ShopUI {
         int id = PrrPrr.getHighestKey();
         String title = JOptionPane.showInputDialog("Wat is de titel?");
 
+        switch (type){
+            case "G":
+                PrrPrr.addProduct(new Game(title,id));
+                break;
+            case "M":
+                PrrPrr.addProduct(new Movie(title,id));
+                break;
+            case "CD":
+                PrrPrr.addProduct(new CD(title,id));
+                break;
+            default: throw new IllegalArgumentException("Geen juiste code");
+
+        }
+    }
+
+
+    private void addProduct(String type,String title){
+        int id = PrrPrr.getHighestKey();
         switch (type){
             case "G":
                 PrrPrr.addProduct(new Game(title,id));
