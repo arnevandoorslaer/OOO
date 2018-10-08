@@ -26,7 +26,13 @@ public class Geheim {
             case "C":
                 gedrag = new CaesarCijfer(this);
                 break;
+            case "Caesar":
+                gedrag = new CaesarCijfer(this);
+                break;
             case "S":
+                gedrag = new Spiegeling(this);
+                break;
+            case "Spiegel":
                 gedrag = new Spiegeling(this);
                 break;
             default: break;

@@ -1,7 +1,8 @@
 package ui;
 
-public class GeheimLauncher {
+public class GeheimLauncher{
     public static void main(String[] args){
-        GeheimUI ui = new GeheimUI();
+        GeheimUIFX ui = new GeheimUIFX();
+        GeheimUIFX.main(args);
     }
 }
