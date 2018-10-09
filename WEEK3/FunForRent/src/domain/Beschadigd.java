@@ -1,6 +1,23 @@
 package domain;
 
-public class Beschadigd {
-    public void herstel(){};
-    public void verwijder(){};
+public class Beschadigd implements  FeestartikelState{
+    @Override
+    public void herstel() {
+
+    }
+
+    @Override
+    public void verwijder() {
+
+    }
+
+    @Override
+    public void brengTerug() {
+
+    }
+
+    @Override
+    public void leenUit() {
+
+    }
 }
