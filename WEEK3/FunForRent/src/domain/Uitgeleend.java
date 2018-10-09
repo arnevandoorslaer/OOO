@@ -28,6 +28,6 @@ public class Uitgeleend implements FeestartikelState {
     }
 
     public String toString(){
-        return "Product is uitgeleend.";
+        return "uitgeleend.";
     }
 }

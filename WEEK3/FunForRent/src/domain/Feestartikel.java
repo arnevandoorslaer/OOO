@@ -1,12 +1,12 @@
 package domain;
 
 public class Feestartikel {
-    FeestartikelState uitgeleend;
-    FeestartikelState verwijderd;
-    FeestartikelState beschadigd;
-    FeestartikelState uitleenbaar;
+    private FeestartikelState uitgeleend= new Uitgeleend(this);
+    private FeestartikelState verwijderd = new Verwijderd(this);
+    private FeestartikelState beschadigd = new Uitleenbaar(this);
+    private FeestartikelState uitleenbaar = new Uitleenbaar(this);
 
-    FeestartikelState state = uitleenbaar;
+    private FeestartikelState state = uitleenbaar;
 
     public Feestartikel() {
         uitgeleend = new Uitgeleend(this);
@@ -54,5 +54,9 @@ public class Feestartikel {
 
     public void leenUit() {
         state.leenUit();
+    }
+
+    public String toString(){
+        return "Product is " + state;
     }
 }

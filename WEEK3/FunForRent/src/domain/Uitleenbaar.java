@@ -28,6 +28,6 @@ public class Uitleenbaar implements FeestartikelState {
     }
 
     public String toString(){
-        return "Product is uitleenbaar.";
+        return "uitleenbaar.";
     }
 }

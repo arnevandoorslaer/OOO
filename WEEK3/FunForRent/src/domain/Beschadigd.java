@@ -28,6 +28,6 @@ public class Beschadigd implements FeestartikelState {
     }
 
     public String toString(){
-        return "Product is beschadigd.";
+        return "beschadigd.";
     }
 }
