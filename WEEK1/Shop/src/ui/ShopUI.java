@@ -40,7 +40,7 @@ public class ShopUI {
                 case 4: showStatus(); break;
                 case 5: showListOfProducts(); break;
                 case 0: break;
-                default: throw new IllegalArgumentException("Invalid coice");
+                default: break;
             }
         }
     }

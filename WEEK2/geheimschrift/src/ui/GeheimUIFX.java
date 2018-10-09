@@ -69,7 +69,7 @@ public class GeheimUIFX extends Application {
         input.setPrefWidth(500);
 
         // textField voor de output
-        output = new TextField("test");
+        output = new TextField("");
         output.setDisable(true);
         output.setLayoutX(20);
         output.setLayoutY(170);
