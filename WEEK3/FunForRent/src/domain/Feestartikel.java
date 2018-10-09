@@ -1,18 +1,49 @@
 package domain;
 
 public class Feestartikel {
-    private FeestartikelState uitgeleend= new Uitgeleend(this);
-    private FeestartikelState verwijderd = new Verwijderd(this);
-    private FeestartikelState beschadigd = new Uitleenbaar(this);
     private FeestartikelState uitleenbaar = new Uitleenbaar(this);
+    private FeestartikelState uitgeleend;
+    private FeestartikelState verwijderd;
+    private FeestartikelState beschadigd;
+
+
+    private double prijs;
+    private String naam;
+    private int id;
 
     private FeestartikelState state = uitleenbaar;
 
-    public Feestartikel() {
+    public Feestartikel(String naam, double prijs) {
+        setNaam(naam);
+        setPrijs(prijs);
+        uitleenbaar = new Uitleenbaar(this);
         uitgeleend = new Uitgeleend(this);
         verwijderd = new Verwijderd(this);
-        uitleenbaar = new Uitleenbaar(this);
         beschadigd = new Beschadigd(this);
+    }
+
+    public String getNaam() {
+        return this.naam;
+    }
+
+    private void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    public double getPrijs() {
+        return prijs;
+    }
+
+    public void setPrijs(double prijs) {
+        this.prijs = prijs;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public FeestartikelState getState() {
@@ -56,7 +87,11 @@ public class Feestartikel {
         state.leenUit();
     }
 
-    public String toString(){
-        return "Product is " + state;
+    public void beschadig() {
+        state.beschadig();
+    }
+
+    public String toString() {
+        return "Het product " + naam + " is " + state;
     }
 }

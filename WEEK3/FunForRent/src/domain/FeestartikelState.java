@@ -5,4 +5,5 @@ public interface FeestartikelState {
     void verwijder();
     void brengTerug();
     void leenUit();
+    void beschadig();
 }

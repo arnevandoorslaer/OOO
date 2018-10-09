@@ -9,12 +9,12 @@ public class Uitgeleend implements FeestartikelState {
 
     @Override
     public void herstel() {
-        throw new IllegalArgumentException("");
+        throw new IllegalArgumentException(feestartikel.getNaam() + " is niet beschadigd.");
     }
 
     @Override
     public void verwijder() {
-        throw new IllegalArgumentException("");
+        throw new IllegalArgumentException(feestartikel.getNaam() + " is momenteel uitgeleend.");
     }
 
     @Override
@@ -24,7 +24,12 @@ public class Uitgeleend implements FeestartikelState {
 
     @Override
     public void leenUit() {
-        throw new IllegalArgumentException("");
+        throw new IllegalArgumentException(feestartikel.getNaam() + " is al uitgeleend.");
+    }
+
+    @Override
+    public void beschadig() {
+        feestartikel.setState(feestartikel.getBeschadigd());
     }
 
     public String toString(){

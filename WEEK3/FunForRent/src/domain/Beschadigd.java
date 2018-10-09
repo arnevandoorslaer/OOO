@@ -9,7 +9,8 @@ public class Beschadigd implements FeestartikelState {
 
     @Override
     public void herstel() {
-        feestartikel.setState(feestartikel.getUitgeleend());
+        feestartikel.setPrijs(feestartikel.getPrijs()*2/3);
+        feestartikel.setState(feestartikel.getUitleenbaar());
     }
 
     @Override
@@ -19,12 +20,17 @@ public class Beschadigd implements FeestartikelState {
 
     @Override
     public void brengTerug() {
-        throw new IllegalArgumentException("Product is beschadigd en kan niet terug gebracht worden.");
+        throw new IllegalArgumentException(feestartikel.getNaam() + " is beschadigd en kan niet terug gebracht worden.");
     }
 
     @Override
     public void leenUit() {
-        throw new IllegalArgumentException("Product is beschadigd en kan niet uitgeleend worden.");
+        throw new IllegalArgumentException(feestartikel.getNaam() + " is beschadigd en kan niet uitgeleend worden.");
+    }
+
+    @Override
+    public void beschadig() {
+        throw new IllegalArgumentException(feestartikel.getNaam() + " is al beschadigd.");
     }
 
     public String toString(){
