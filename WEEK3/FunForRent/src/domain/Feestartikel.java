@@ -13,9 +13,10 @@ public class Feestartikel {
 
     private FeestartikelState state = uitleenbaar;
 
-    public Feestartikel(String naam, double prijs) {
+    public Feestartikel(int id,String naam, double prijs) {
         setNaam(naam);
         setPrijs(prijs);
+        setId(id);
         uitleenbaar = new Uitleenbaar(this);
         uitgeleend = new Uitgeleend(this);
         verwijderd = new Verwijderd(this);
@@ -92,6 +93,6 @@ public class Feestartikel {
     }
 
     public String toString() {
-        return "Het product " + naam + " is " + state;
+        return "Het product " + naam + " met id " + id + " is " + state;
     }
 }
