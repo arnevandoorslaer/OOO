@@ -9,9 +9,6 @@ public class FeestartikelUI {
 
     public FeestartikelUI() {
         fm = new Feestmateriaal();
-        fm.addArtikel("Grote Dildo", 30.12);
-        fm.addArtikel("Kleine Dildo", 20.12);
-        fm.addArtikel("Water", 1.50);
         fm.addArtikel("Party Popper", 5);
         fm.addArtikel("Wiet", 10);
 
