@@ -3,7 +3,7 @@ package domain.model;
 public class Spel {
 
     private Player[] players;
-    private int[] scores;
+    private int[][] scores;
 
     public Spel(int aantal){
         //voeg alle players toe
@@ -12,7 +12,7 @@ public class Spel {
             players[i] = new Player();
         }
         //maak lege array met score
-        scores = new int[aantal];
+        scores = new int[aantal][8];
     }
 
     public void werp(int playernummer){
