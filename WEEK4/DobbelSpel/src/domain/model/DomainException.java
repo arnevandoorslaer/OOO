@@ -1,4 +1,10 @@
 package domain.model;
 
-public class DomainException {
+public class DomainException extends RuntimeException{
+    public DomainException(String s){
+        super(s);
+    }
+    public DomainException(){
+        super();
+    }
 }
