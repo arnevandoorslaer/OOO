@@ -16,9 +16,9 @@ public class Spel {
     }
 
     public void werp(int playernummer){
+        players[playernummer].werp();
         scores[playernummer] =
-                players[playernummer].werp();
-
+                players[playernummer].getRolls();
     }
 
     public int[] getWinner(){
