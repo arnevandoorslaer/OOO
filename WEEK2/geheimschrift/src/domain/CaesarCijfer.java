@@ -2,16 +2,10 @@ package domain;
 
 public class CaesarCijfer implements CodeerGedrag {
     private final int s = 9;
-    private Geheim context;
 
-    public CaesarCijfer(Geheim c) {
-
-        this.context = c;
-    }
-
-    public String Codeer() {
+    public String Codeer(String zin) {
         StringBuffer result = new StringBuffer();
-        String text = context.getZin();
+        String text = zin;
 
         for (int i = 0; i < text.length(); i++) {
             if (Character.isUpperCase(text.charAt(i))) {
@@ -27,9 +21,9 @@ public class CaesarCijfer implements CodeerGedrag {
         return result.toString();
     }
 
-    public String Decodeer() {
+    public String Decodeer(String zin) {
         StringBuffer result = new StringBuffer();
-        String text = context.getZin();
+        String text = zin;
 
         for (int i = 0; i < text.length(); i++) {
             if (Character.isUpperCase(text.charAt(i))) {

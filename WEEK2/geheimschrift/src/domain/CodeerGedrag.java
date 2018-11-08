@@ -1,6 +1,6 @@
 package domain;
 
 public interface CodeerGedrag {
-    public String Codeer();
-    public String Decodeer();
+    public String Codeer(String zin);
+    public String Decodeer(String zin);
 }

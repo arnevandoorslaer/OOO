@@ -1,5 +1,6 @@
 package ui;
 
+import domain.Cyphers;
 import domain.Geheim;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -10,13 +11,14 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import service.Facade;
 
 import javax.swing.*;
 
 
 public class GeheimUIFX extends Application {
 
-    private Geheim g;
+    private Facade f;
     Button Code;
     Button Decode;
     TextField input;
@@ -32,7 +34,7 @@ public class GeheimUIFX extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Coderen en decoderen");
-
+        f = new Facade();
         // de knop om te coderen
         Code = new Button("Codeer");
         Code.setLayoutX(100);
@@ -42,10 +44,9 @@ public class GeheimUIFX extends Application {
         Code.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                g = new Geheim(input.getText());
-                g.setGedrag(combo.getValue());
-                System.out.println(combo.getValue());
-                output.setText(g.codeer());
+                f.setGeheim(input.getText());
+                f.setGedrag(combo.getValue());
+                output.setText(f.codeer());
             }
         });
 
@@ -56,10 +57,9 @@ public class GeheimUIFX extends Application {
         Decode.setPrefSize(100,50);
         Decode.setStyle("-fx-font: 16 arial;");
         Decode.setOnAction(e -> {
-            g = new Geheim(input.getText());
-            g.setGedrag(combo.getValue());
-            System.out.println(combo.getValue());
-            output.setText(g.decodeer());
+            f.setGeheim(input.getText());
+            f.setGedrag(combo.getValue());
+            output.setText(f.decodeer());
         });
 
         // input field
@@ -70,14 +70,16 @@ public class GeheimUIFX extends Application {
 
         // textField voor de output
         output = new TextField("");
-        output.setDisable(true);
+        output.setDisable(false);
         output.setLayoutX(20);
         output.setLayoutY(170);
         output.setPrefWidth(500);
 
         // de combobox vullen
         combo = new ComboBox<>();
-        combo.getItems().addAll("Caesar","Spiegel");
+        for(String s: f.getCyphers()){
+            combo.getItems().add(s);
+        }
         combo.setLayoutX(190);
         combo.setLayoutY(50);
         combo.setPrefWidth(160);

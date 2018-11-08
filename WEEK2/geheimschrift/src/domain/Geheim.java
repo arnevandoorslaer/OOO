@@ -10,11 +10,11 @@ public class Geheim {
     }
 
     public String codeer(){
-        return this.getGedrag().Codeer();
+        return this.getGedrag().Codeer(zin);
     }
 
     public String decodeer(){
-        return this.getGedrag().Decodeer();
+        return this.getGedrag().Decodeer(zin);
     }
 
     public CodeerGedrag getGedrag() {
@@ -22,25 +22,8 @@ public class Geheim {
     }
 
     public void setGedrag(String code) {
-        switch(code){
-            case "C":
-                gedrag = new CaesarCijfer(this);
-                break;
-            case "Caesar":
-                gedrag = new CaesarCijfer(this);
-                break;
-            case "S":
-                gedrag = new Spiegeling(this);
-                break;
-            case "Spiegel":
-                gedrag = new Spiegeling(this);
-                break;
-            default: break;
-        }
-    }
-
-    public String getZin() {
-        return zin;
+        GeheimFactory fac = new GeheimFactory();
+        gedrag = fac.create(code);
     }
 
     private void setZin(String zin) {

@@ -1,21 +1,15 @@
 package domain;
 
 public class Spiegeling implements CodeerGedrag {
-    private Geheim context;
-
-    public Spiegeling(Geheim c){
-        this.context = c;
-    }
-
-    public String Codeer(){
+    public String Codeer(String zin){
         String res ="";
-        String in = context.getZin();
+        String in = zin;
         for(int i = 0; i<in.length(); i++){
             res = in.charAt(i) + res ;
         }
         return res;
     }
-    public String Decodeer(){
-        return Codeer();
+    public String Decodeer(String zin){
+        return Codeer(zin);
     }
 }
